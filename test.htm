@@ -10,10 +10,28 @@
 </head>
 
 <body>
+    <br>
+    <b>Searching:</b><br>
     Enter integers:
 
     
-        <input id="input_area" type="text"> <select id="choice">
+        <input id="input_area1" type="text"> Enter key:<input id="key" type=
+        "text"> <select id="choice1">
+            <option value="0">
+                Select searching algorithm
+            </option>
+
+            <option value="1">
+                Linear Search
+            </option>
+
+            <option value="2">
+                Binary Search
+            </option>
+        </select> <button onclick="search()">Search</button><br>
+        <b>Sorting:</b><br>
+        Enter integers: <input id="input_area" type="text"> <select id=
+        "choice">
             <option value="0">
                 Select sorting algorithm
             </option>
@@ -42,20 +60,20 @@
                 Heap Sort
             </option>
         </select> <button onclick="sortInput()">Sort</button><br>
-        Enter integers:<input id="input_area1" type="text"> Enter
-        key:<input id="key" type="text"> <select id="choice1">
-            <option value="0">
-                Select searching algorithm
-            </option>
-
-            <option value="1">
-                Linear Search
-            </option>
-
-            <option value="2">
-                Binary Search
-            </option>
-        </select> <button onclick="search()">Search</button>
+        <b>Stack:</b><br>
+        Size:<input id="stack_size" type="text"><button onclick=
+        "createStack()">Create Stack</button> <input id="push_item" type=
+        "text"><button onclick="pushInToStack()">Push</button> <button onclick=
+        "popFromStack()">Pop</button> <button onclick="showStack()">Display
+        Stack</button> <button onclick="deleteStack()">Delete
+        Stack</button><br>
+        <b>Queue:</b><br>
+        Size:<input id="queue_size" type="text"><button onclick=
+        "createQueue()">Create Queue</button> <input id="insert_item" type=
+        "text"><button onclick="insertInToQueue()">Insert</button>
+        <button onclick="deleteFromQueue()">Delete</button> <button onclick=
+        "showQueue()">Display Queue</button> <button onclick=
+        "deleteQueue()">Delete Queue</button>
     
 
     <div id="output_area"></div><script>
@@ -67,27 +85,27 @@ function sortInput()
     console.log("Please select a sorting algorithm.");
     break;
     case 1:
-    console.log("Bubble Sort:");
+
     bubbleSort(document.getElementById("input_area").value.split(" "));
     break;
     case 2:
-    console.log("Selection Sort:");
+
     selectionSort(document.getElementById("input_area").value.split(" "));
     break;
     case 3:
-    console.log("Insertion Sort:");
+
     insertionSort(document.getElementById("input_area").value.split(" "));
     break;
     case 4:
-    console.log("Quick Sort:");
+
     quickSort(document.getElementById("input_area").value.split(" "));
     break;
     case 5:
-    console.log("Merge Sort:");
+
     mergeSort(document.getElementById("input_area").value.split(" "));
     break;
     case 6:
-    console.log("Heap Sort:");
+
     heapSort(document.getElementById("input_area").value.split(" "));
     break;
     }
@@ -100,14 +118,55 @@ function sortInput()
     console.log("Please select a searching algorithm.");
     break;
     case 1:
-    console.log("Linear Search:");
+
     linearSearch(document.getElementById("input_area1").value.split(" "),document.getElementById("key").value);
     break;
     case 2:
-    console.log("Binary Search:");
+
     binarySearch(document.getElementById("input_area1").value.split(" "),document.getElementById("key").value);
     break;
     }
+    }
+
+    function createStack()
+    {
+    initializeStack(parseInt(document.getElementById("stack_size").value));
+    }
+    function pushInToStack()
+    {
+    push(document.getElementById("push_item").value);
+    }
+    function popFromStack()
+    {
+    pop();
+    }
+    function showStack()
+    {
+    displayStack();
+    }
+    function createQueue()
+    {
+    initializeQueue(parseInt(document.getElementById("queue_size").value));
+    }
+    function insertInToQueue()
+    {
+    insertItem(document.getElementById("insert_item").value);
+    }
+    function deleteFromQueue()
+    {
+    deleteItem();
+    }
+    function showQueue()
+    {
+    displayQueue();
+    }
+    function deleteStack()
+    {
+    destroyStack();
+    }
+    function deleteQueue()
+    {
+    destroyQueue();
     }
     </script>
 </body>
