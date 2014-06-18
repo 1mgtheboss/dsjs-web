@@ -1,3 +1,6 @@
+/*
+**Manojit Ghosh © 2014
+*/
 var heapSize = 0;
 
 function bubbleSort(a) {
