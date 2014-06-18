@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+
+    <script src="ds.js"></script>
+
+    <title></title>
+</head>
+
+<body>
+    Enter integers:
+
+    <form>
+        <input id="input_area" type="text"> <select id="choice">
+            <option value="0">
+                Select sorting algorithm
+            </option>
+
+            <option value="1">
+                Bubble Sort
+            </option>
+
+            <option value="2">
+                Selection Sort
+            </option>
+
+            <option value="3">
+                Insertion Sort
+            </option>
+
+            <option value="4">
+                Quick Sort
+            </option>
+
+            <option value="5">
+                Merge Sort
+            </option>
+
+            <option value="6">
+                Heap Sort
+            </option>
+        </select> <button onclick="sortInput()">Sort</button><br>
+        Enter integers:<input id="input_area1" type="text"> Enter
+        key:<input id="key" type="text"> <select id="choice1">
+            <option value="0">
+                Select searching algorithm
+            </option>
+
+            <option value="1">
+                Linear Search
+            </option>
+
+            <option value="2">
+                Binary Search
+            </option>
+        </select> <button onclick="search()">Search</button>
+    </form>
+
+    <div id="output_area"></div><script>
+function sortInput()
+    {
+    switch(parseInt(document.getElementById("choice").value))
+    {
+    case 0:
+    console.log("Please select a sorting algorithm.");
+    break;
+    case 1:
+    console.log("Bubble Sort:");
+    bubbleSort(document.getElementById("input_area").value.split(" "));
+    break;
+    case 2:
+    console.log("Selection Sort:");
+    selectionSort(document.getElementById("input_area").value.split(" "));
+    break;
+    case 3:
+    console.log("Insertion Sort:");
+    insertionSort(document.getElementById("input_area").value.split(" "));
+    break;
+    case 4:
+    console.log("Quick Sort:");
+    quickSort(document.getElementById("input_area").value.split(" "));
+    break;
+    case 5:
+    console.log("Merge Sort:");
+    mergeSort(document.getElementById("input_area").value.split(" "));
+    break;
+    case 6:
+    console.log("Heap Sort:");
+    heapSort(document.getElementById("input_area").value.split(" "));
+    break;
+    }
+    }
+    function search()
+    {
+    switch(parseInt(document.getElementById("choice1").value))
+    {
+    case 0:
+    console.log("Please select a searching algorithm.");
+    break;
+    case 1:
+    console.log("Linear Search:");
+    linearSearch(document.getElementById("input_area1").value.split(" "),document.getElementById("key").value);
+    break;
+    case 2:
+    console.log("Binary Search:");
+    binarySearch(document.getElementById("input_area1").value.split(" "),document.getElementById("key").value);
+    break;
+    }
+    }
+    </script>
+</body>
+</html>
