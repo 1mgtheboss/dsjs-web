@@ -1,9 +1,17 @@
 /*
-**Manojit Ghosh © 2014
-*/
+ **Manojit Ghosh © 2014
+ */
 var heapSize = 0;
+var TOS = -1;
+var STACK = null;
+var STACK_SIZE = 0;
+var front = -1;
+var rear = -1;
+var QUEUE = null;
+var QUEUE_SIZE = 0;
 
 function bubbleSort(a) {
+    console.log("Bubble Sort:");
     var t;
     for (var i = 0; i < a.length; i++) {
         for (var j = 0; j < (a.length - 1 - i); j++) {
@@ -18,6 +26,7 @@ function bubbleSort(a) {
 }
 
 function selectionSort(a) {
+    console.log("Selection Sort:");
     var t;
     for (var i = 0; i < a.length - 1; i++) {
         var j = i;
@@ -34,6 +43,7 @@ function selectionSort(a) {
 }
 
 function insertionSort(a) {
+    console.log("Insertion Sort:");
     for (var j = 1; j < a.length; j++) {
         var key = a[j];
         var i = j - 1;
@@ -47,6 +57,7 @@ function insertionSort(a) {
 }
 
 function quickSort(a) {
+    console.log("Quick Sort:");
     var m = 0;
     var n = a.length - 1;
     quickSorter(a, m, n);
@@ -79,6 +90,7 @@ function quickSorter(a, m, n) {
 }
 
 function mergeSort(a) {
+    console.log("Merge Sort:");
     var p = 0;
     var r = a.length - 1;
     mergeSorter(a, p, r);
@@ -130,6 +142,7 @@ function findLargest(a) {
 }
 
 function heapSort(a) {
+    console.log("Heap Sort:");
     var t = "";
     buildMaxHeap(a);
     for (var i = a.length - 1; i >= 1; i--) {
@@ -164,6 +177,7 @@ function maxHeapify(a, i) {
 }
 
 function linearSearch(a, key) {
+    console.log("Linear Search:");
     console.log(a);
     for (var i = 0; i < a.length; i++)
     if (parseInt(a[i]) == parseInt(key)) {
@@ -174,6 +188,7 @@ function linearSearch(a, key) {
 }
 
 function binarySearch(a, key) {
+    console.log("Binary Search:");
     a.sort(function(x, y) {
         return parseInt(x) - parseInt(y);
     });
@@ -191,4 +206,123 @@ function binarySearch(a, key) {
         }
     }
     console.log("Key not found!");
+}
+
+function initializeStack(size) {
+    if (STACK != null) console.log("One stack already exists.");
+    else {
+        STACK = new Array();
+        STACK_SIZE = size;
+        console.log("Stack initialized.");
+    }
+}
+
+function push(item) {
+    if (STACK == null) {
+        console.log("There is no stack.");
+        return;
+    }
+    if (TOS == STACK_SIZE - 1) console.log("Stack overflow!");
+    else {
+        TOS++;
+        STACK.push(item);
+        console.log("Item pushed.");
+    }
+}
+
+function pop() {
+    if (STACK == null) {
+        console.log("There is no stack.");
+        return;
+    }
+    if (TOS == -1) console.log("Stack underflow!");
+    else {
+        console.log(STACK.pop());
+        TOS--;
+    }
+}
+
+function displayStack() {
+    if (STACK == null) {
+        console.log("There is no stack.");
+        return;
+    }
+    console.log(STACK);
+}
+
+function destroyStack() {
+    if (STACK == null) {
+        console.log("There is no stack.");
+        return;
+    }
+    if (STACK != null) {
+        STACK = null;
+        TOS = -1;
+        STACK_SIZE = 0;
+        console.log("Stack destroyed.");
+    }
+}
+
+function initializeQueue(size) {
+    if (QUEUE != null) console.log("One queue already exists.")
+    else {
+        QUEUE = new Array();
+        QUEUE_SIZE = size;
+        for (var i = 0; i < QUEUE_SIZE; i++)
+        QUEUE[i] = "";
+        console.log("Queue initialized.");
+    }
+}
+
+function insertItem(item) {
+    if (QUEUE == null) {
+        console.log("There is no queue.");
+        return;
+    }
+    if (rear == QUEUE_SIZE - 1) console.log("Queue full.");
+    else {
+        rear++;
+        if (front == -1) front++;
+        QUEUE[rear] = item;
+        console.log("Item inserted.");
+    }
+}
+
+function deleteItem() {
+    if (QUEUE == null) {
+        console.log("There is no queue.");
+        return;
+    }
+    if (front == -1) console.log("Queue empty.");
+    else {
+        QUEUE[front] = "";
+        front++;
+        if (front == QUEUE_SIZE) {
+            front = -1;
+            rear = -1;
+        }
+        console.log("Item deleted.");
+    }
+}
+
+function displayQueue() {
+    if (QUEUE == null) {
+        console.log("There is no queue.");
+        return;
+    }
+    console.log(QUEUE);
+}
+
+function destroyQueue() {
+    if (QUEUE == null) {
+        console.log("There is no queue.");
+        return;
+    }
+    if (QUEUE != null) {
+        QUEUE = null;
+        front = -1;
+        rear = -1;
+        QUEUE_SIZE = 0;
+        console.log("Queue destroyed.");
+    }
 }
